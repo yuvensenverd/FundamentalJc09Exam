@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            form {
+            margin: 0 auto;
+            width: 400px;
+            padding: 1em;
+            border: 2px solid #CCC;
+            }
+
+        </style>
+</head>
+<body>
+    <form>
+        <center><h1>Drawing Tools</h1></center><br>
+            <p>1. Persegi</p>
+            <p>2. Segitiga Siku2 Rata Kiri</p>
+            <p>3. Segitiga Siku2 Rata Kanan</p>
+            <p>Jenis Bangunan : </p> 
+            <input type="number" id="userbangunan" placeholder="masukkan nomor">
+            <p>Ukuran</p> 
+            <input type="number" id="userukuran" placeholder="masukkan nomor"><br><br>
+            <input type="button" id="buttonoutput" value="lihat" onclick="showOutput()">
+            <h3></h3>
+
+
+
+
+
+    </form>
+    <script>
+        function showOutput(){
+            var jenis = document.getElementById("userbangunan").value
+            jenis = parseInt(jenis)
+            var ukuran = document.getElementById("userukuran").value
+            ukuran = parseInt(ukuran)
+
+            if(jenis > 3 && jenis < 1){ alert("input salah")}
+            else{
+                if(jenis == 1){
+                    persegi(ukuran)
+                }else if(jenis == 2){
+                    segitigaKiri(ukuran)
+                }else if(jenis == 3){
+                    segitigaKanan(ukuran)
+                }
+
+
+            }
+
+
+            // --------------LIST FUNCTION---------------------------
+            // PERSEGI 
+            function persegi(param){
+            var output = ""
+            for(var i = 0; i<param; i++){
+                for(var y = 0; y<param;y++){
+                    output = output + " *"
+                    
+                }
+                output = output + "<br>"
+            }
+            document.getElementsByTagName("h3")[0].innerHTML = output
+        }
+
+            //Segitiga siku2 kiri
+            function segitigaKiri(param){
+                var output = ""
+                for (var x = 1; x<=param; x++){
+                    for(var y=1; y<=x; y++){
+                        output = output + " *"
+                    }
+                    output = output + "<br>"
+                }
+                document.getElementsByTagName("h3")[0].innerHTML = output
+            }
+            //Segitiga siku2 kanan
+            function segitigaKanan(param){
+            
+                var output = ""
+                for(var i=0; i<param; i++) {
+                    for(var j=0; j<param-i; j++) {
+                        output = output + `&nbsp;&nbsp;` // empty space html // gak bisa spasi biasa
+                    }
+                    for(var k = 0; k<=i; k++){
+                        output = output + "*"
+                    }
+                    output = output + "<br>"
+            
+                }  
+                document.getElementsByTagName("h3")[0].innerHTML = output
+            }
+          
+
+
+            // Reset
+
+
+                
+            }
+
+
+
+
+
+
+
+        
+    
+    
+    
+    
+    </script>
+    
+</body>
+</html>
